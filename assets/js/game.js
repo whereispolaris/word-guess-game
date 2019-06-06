@@ -9,58 +9,7 @@ var losses;
 var lettersAlreadyGuessed;
 
  // Create array of countries
-var countries = [
-    "china" ,
-    "india" ,
-    "united states" ,
-    "indonesia" ,
-    "brazil" ,
-    "pakistan" ,
-    "nigeria" ,
-    "bangladesh" ,
-    "russia" ,
-    "japan" ,
-    "mexico" ,
-    "philippines" ,
-    "ethiopia" ,
-    "vietnam" ,
-    "egypt" ,
-    "iran" ,
-    "congo" ,
-    "germany" ,
-    "turkey" ,
-    "thailand" ,
-    "france" ,
-    "united kingdom" ,
-    "italy" ,
-    "burma" ,
-    "south africa" ,
-    "tanzania" ,
-    "korea, south" ,
-    "spain" ,
-    "colombia" ,
-    "kenya" ,
-    "ukraine" ,
-    "argentina" ,
-    "algeria" ,
-    "poland" ,
-    "uganda" ,
-    "iraq" ,
-    "sudan" ,
-    "canada" ,
-    "morocco" ,
-    "afghanistan" ,
-    "malaysia" ,
-    "venezuela" ,
-    "peru" ,
-    "uzbekistan" ,
-    "nepal" ,
-    "saudi arabia" ,
-    "yemen" ,
-    "ghana" ,
-    "mozambique" ,
-    "north korea" ,
-]
+var countries = ["china" , "india" , "united states" , "indonesia" , "brazil" , "pakistan" , "nigeria" , "bangladesh" , "russia" , "japan" , "mexico" , "philippines" , "ethiopia" , "vietnam" , "egypt" , "iran" , "congo" , "germany" , "turkey" , "thailand" , "france" , "united kingdom" , "italy" , "burma" , "south africa" , "tanzania" , "korea, south" , "spain" , "colombia" , "kenya" , "ukraine" , "argentina" , "algeria" , "poland" , "uganda" , "iraq" , "sudan" , "canada" , "morocco" , "afghanistan" , "malaysia" , "venezuela" , "peru" , "uzbekistan" , "nepal" , "saudi arabia" , "yemen" , "ghana" , "mozambique" , "north korea"]
 
 
 // CHOOSE RANDOM OBJECT FROM countries[] ARRAY
@@ -78,3 +27,5 @@ console.log(letterCount.length);
 var guessedLetter = prompt("Choose letter");
 console.log(guessedLetter);
 
+
+console.log(guessedLetter.includes(selectedCountry)); // false
