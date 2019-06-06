@@ -1,8 +1,14 @@
+// PRESS SPACE BAR TO START
+    // event listener for space bar
+
+// Create fundamental variables
 var selectedCountry;
+var guessedLetter;
 var wins;
 var losses;
 var lettersAlreadyGuessed;
 
+ // Create array of countries
 var countries = [
     "china" ,
     "india" ,
@@ -57,12 +63,18 @@ var countries = [
 ]
 
 
+// CHOOSE RANDOM OBJECT FROM countries[] ARRAY
+var selectedCountry = countries[Math.floor(Math.random() * countries.length)];
+console.log(selectedCountry);
 
-// Loop:
-// for (var i = 0; i < countries.length; i++) {
-//     console.log(countries[i].toLowerCase());
-// }
+// Append selectedCountry to Word: h1
 
-// Get random number:
-// Math.floor(Math.random() * countries.length);
+
+// Count letters in selectedCountry
+var letterCount = selectedCountry.valueOf();
+console.log(letterCount.length);
+
+
+var guessedLetter = prompt("Choose letter");
+console.log(guessedLetter);
 

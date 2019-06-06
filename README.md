@@ -11,6 +11,7 @@
 ## PSEUDOCODE
 
 ### Sequence of Game
+- PRESS SPACE BAR TO START
 - A word from the array `countries[]`is selected randomly
     `Math.floor(Math.random() * countries.length);`
 - Show how many letters the word is
@@ -19,9 +20,9 @@
 ### When user presses letter:
 - Check if `guessedLetter` existis in `pressedLetters[]`
     - Do nothing
-- Check if `guessedLetter` exists in `selectedWord`
+- Check if `guessedLetter` exists in `selectedCountry`
     - Push `guessedLetter` to `guessedWord` 
-- Check if `selectedWord` === `guessedWord`
+- Check if `selectedCountry` === `guessedWord`
 - Add `guessedLetter` to `pressedLetters[]` 
 
  
