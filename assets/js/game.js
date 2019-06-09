@@ -37,11 +37,23 @@ console.log(wordLetters);
 
 // Run loop that creates span element with class="LETTER" and appends to <h2 class="wordDisplay"> element
 for (var i = 0; i < wordLetters.length; i++) {
-    $("#wordDisplay").append('<span class="' + wordLetters[i] + ' notGuessed">' + wordLetters[i] + '</span>');
+    $("#wordDisplay").append('<span class="' + wordLetters[i] + ' notGuessed"> _ </span>');
     // console.log(spanElement);
-       //ADD CLASSs
+       //ADD CLASS
 }
 
+// Ask user to guess letter
+var guessedLetter = prompt("Choose letter").toLowerCase();
+console.log("you chose " + guessedLetter);
+
+// If guessed letter matches any of the letters, remove class. 
+for (var i = 0; i < wordLetters.length; i++) {
+    if (guessedLetter === wordLetters[i]) {
+    console.log(wordLetters[i]);
+    // Remove class form guessed letter.
+    } 
+    
+}
 // document.write(spanElement);
 
 // ===== ALTERNATIVE LOOP =======
@@ -67,9 +79,7 @@ console.log(letterCount );
     // run a loop that renders html tag that will display blanks (_)
 
 
-// Ask user to guess letter
-// var guessedLetter = prompt("Choose letter").toLowerCase();
-// console.log("you chose " + guessedLetter);
+
 
 // find a way to see if letter is present in selectedCountry
 
