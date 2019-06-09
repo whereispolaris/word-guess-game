@@ -28,7 +28,7 @@ var usedLetters = [];
 var selectedCountry = countries[Math.floor(Math.random() * countries.length)];
 console.log("The random country is " + selectedCountry);
 
-// Testing one Single country
+// Testing one single country
 selectedCountry = "colombia";
 
 // Break down the selectedWord into individual letters:
@@ -39,12 +39,10 @@ console.log(wordLetters);
 for (var i = 0; i < wordLetters.length; i++) {
     $("#wordDisplay").append('<span class="' + wordLetters[i] + ' notGuessed">' + wordLetters[i] + '</span>');
     // console.log(spanElement);
-       //ADD CLASS  
+       //ADD CLASSs
 }
 
 // document.write(spanElement);
-
-console.log(wordLetters[0]);
 
 // ===== ALTERNATIVE LOOP =======
 // wordLetters.forEach( function(element){
