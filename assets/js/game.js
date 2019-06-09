@@ -44,18 +44,7 @@ console.log("you chose " + guessedLetter);
 for (var i = 0; i < wordLetters.length; i++) {
     $("#wordDisplay").append('<span class="' + wordLetters[i] + '">' + wordLetters[i] + '</span>');
     // console.log(spanElement);
-    if (guessedLetter === wordLetters[i]) {
-        console.log(wordLetters[i]);
-        $("span").addClass("correctGuess");
-
-        // NOT WORKING
-        $("span").removeClass("notGuessed")
-        // Remove class form guessed letter.
-
-    } else {
-        $("span").addClass("notGuessed");
-    }
-       //ADD CLASS
+    // Check if guessedLetter matches any of the wordLetter
 }
 
 
