@@ -2,7 +2,7 @@
     // event listener for space bar
 
 // Create fundamental variables
-var selectedCountry;
+// var selectedCountry;
 var wordLetters;
 var guessedLetter;
 var wins = 0;
@@ -25,37 +25,41 @@ var usedCountries = [];
 var usedLetters = [];
 
 // CHOOSE RANDOM OBJECT FROM countries[] ARRAY
-var selectedCountry = countries[Math.floor(Math.random() * countries.length)];
-console.log("The random country is " + selectedCountry);
+function selectedCountry() {
+    return countries[Math.floor(Math.random() * countries.length)];
+    // console.log("The random country is " + selectedCountry);
+}
 
-// Testing one single country
-selectedCountry = "colombia";
+function countAndAppend() {
+    for (var i = 0; i < wordLetters.length; i++) {
+        // Checks if User guess is correct
+        if (wordLetters[i] === guessedLetter) {
+            // if the user guess is correct, render the letter instead of the underscore. 
+            $("#wordDisplay").append('<span id="' + wordLetters[i] + '">' + wordLetters[i] + '</span>')
+        } 
+        else {
+            // If guess is wrong, all the letters stay in underscores
+            $("#wordDisplay").append('<span id="' + wordLetters[i] + '"> _ </span>');
 
-// Break down the selectedWord into individual letters:
-wordLetters = Array.from(selectedCountry);
-console.log(wordLetters);
-
-// Ask user to guess letter
-var guessedLetter = prompt("Choose letter").toLowerCase();
-console.log("you chose " + guessedLetter);
-
-// step 1. find out if the letter guessed is in the word YEEEEESSSSSSSSS
-for (var i = 0; i < wordLetters.length; i++) {
-    // Checks if User guess is correct
-    if (wordLetters[i] === guessedLetter) {
-        // if the user guess is correct, render the letter instead of the underscore. 
-        $("#wordDisplay").append('<span id="' + wordLetters[i] + '">' + wordLetters[i] + '</span>')
-    } 
-    else {
-        // If guess is wrong, all the letters stay in underscores
-        $("#wordDisplay").append('<span id="' + wordLetters[i] + '"> _ </span>');
-
+        }
     }
 }
 
-
-// Count letters in selectedCountry
-var letterCount = selectedCountry.length;
-console.log(letterCount );
+// User Presses Space
+$(window).keypress(function (e) {
+    if (e.key === ' ' || e.key === 'Spacebar') {
+      // ' ' is standard, 'Spacebar' was used by IE9 and Firefox < 37
+      e.preventDefault()
+      console.log('Space pressed')
+      // Select Country from Array
+      selectedCountry();
+      // Break down the selectedWord into individual letters
+      wordLetters = Array.from(selectedCountry());
+      // Ask user to guess letter
+      guessedLetter = prompt("Choose letter").toLowerCase();
+      console.log("you chose " + guessedLetter);
+      countAndAppend();
+    }
+})
 
 
