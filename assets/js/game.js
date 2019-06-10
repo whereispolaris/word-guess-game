@@ -35,64 +35,27 @@ selectedCountry = "colombia";
 wordLetters = Array.from(selectedCountry);
 console.log(wordLetters);
 
-// Run loop that creates span element with class="LETTER" and appends to <h2 class="wordDisplay"> element
-for (var i = 0; i < wordLetters.length; i++) {
-    $("#wordDisplay").append('<span class="' + wordLetters[i] + '">' + wordLetters[i] + '</span>');
-    // Check if guessedLetter matches any of the wordLetter
-    $("span").text("_ ");
-}
-
 // Ask user to guess letter
 var guessedLetter = prompt("Choose letter").toLowerCase();
 console.log("you chose " + guessedLetter);
 
 // step 1. find out if the letter guessed is in the word YEEEEESSSSSSSSS
 for (var i = 0; i < wordLetters.length; i++) {
+    // Checks if User guess is correct
     if (wordLetters[i] === guessedLetter) {
-    console.log("The letter" + wordLetters[i] + "is in the array" )
-    } else
-    console.log("The letter" + wordLetters[i] + "is NOT the array" )
+        // if the user guess is correct, render the letter instead of the underscore. 
+        $("#wordDisplay").append('<span id="' + wordLetters[i] + '">' + wordLetters[i] + '</span>')
+    } 
+    else {
+        // If guess is wrong, all the letters stay in underscores
+        $("#wordDisplay").append('<span id="' + wordLetters[i] + '"> _ </span>');
+
+    }
 }
-// step 2. find out what index(2) the letter is in the word
 
-// step 3. in the array of ‘_’ replace the undescore at the index of the word with the letter that was found.
-
-
-// step 4. show the result of the array to the screen
-
-
-// document.write(spanElement);
-
-// ===== ALTERNATIVE LOOP =======
-// wordLetters.forEach( function(element){
-//     console.log(element);
-//     var spanElement = document.createElement("span");
-//     var spanContent = document.createTextNode(element);
-//     spanElement.appendChild(spanContent);
-//     document.write(spanElement);
-//     //ADD CLASS
-// });
 
 // Count letters in selectedCountry
 var letterCount = selectedCountry.length;
 console.log(letterCount );
 
 
-
-
-// for every characted in letterCount, add underscode to h1 span 
-
-// e.g "colombia" will be printed as _ _ _ _ _ _ _ _
-    // run a loop that renders html tag that will display blanks (_)
-
-
-
-
-// find a way to see if letter is present in selectedCountry
-
-
-
-// if letter matches selectedCountry, add it to wordDisplay
-
-// if letter does not  match
-    // Remove one guessesLeft;
