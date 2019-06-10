@@ -35,24 +35,32 @@ selectedCountry = "colombia";
 wordLetters = Array.from(selectedCountry);
 console.log(wordLetters);
 
+// Run loop that creates span element with class="LETTER" and appends to <h2 class="wordDisplay"> element
+for (var i = 0; i < wordLetters.length; i++) {
+    $("#wordDisplay").append('<span class="' + wordLetters[i] + '">' + wordLetters[i] + '</span>');
+    // Check if guessedLetter matches any of the wordLetter
+    $("span").text("_ ");
+}
+
 // Ask user to guess letter
 var guessedLetter = prompt("Choose letter").toLowerCase();
 console.log("you chose " + guessedLetter);
 
-
-// Run loop that creates span element with class="LETTER" and appends to <h2 class="wordDisplay"> element
+// step 1. find out if the letter guessed is in the word YEEEEESSSSSSSSS
 for (var i = 0; i < wordLetters.length; i++) {
-    $("#wordDisplay").append('<span class="' + wordLetters[i] + '">' + wordLetters[i] + '</span>');
-    // console.log(spanElement);
-    // Check if guessedLetter matches any of the wordLetter
+    if (wordLetters[i] === guessedLetter) {
+    console.log("The letter" + wordLetters[i] + "is in the array" )
+    } else
+    console.log("The letter" + wordLetters[i] + "is NOT the array" )
 }
+// step 2. find out what index(2) the letter is in the word
+
+// step 3. in the array of ‘_’ replace the undescore at the index of the word with the letter that was found.
 
 
-// If guessed letter matches any of the letters, remove class. 
-for (var i = 0; i < wordLetters.length; i++) {
+// step 4. show the result of the array to the screen
 
-    
-}
+
 // document.write(spanElement);
 
 // ===== ALTERNATIVE LOOP =======
