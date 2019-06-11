@@ -64,7 +64,7 @@ $( document ).ready(function() {
 $("#guessesLeft").append(" " + guessesLeft);
 
 // Write event that runs letterchec() when user presses key. 
-function letterCheck(guessedLetter) {
+function letterCheck() {
     // Temporary prompt for user to choose key 
     for (var i = 0; i < wordLetters.length; i++) {
         console.log(wordLetters[i]);
@@ -75,5 +75,10 @@ function letterCheck(guessedLetter) {
     }
 }
 
-// letterCheck() will keep runing untill all letters are guessed
-// letterCheck(String(letterPrompt));
+
+
+// When User Presses letter, prompt shows up
+function activatePrompt() {
+    guessedLetter = prompt("Choose a letter");
+    letterCheck();
+}
