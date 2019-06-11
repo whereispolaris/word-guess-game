@@ -11,14 +11,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <style rel="stylesheet" href="assets/css/style.css">
     
-    /* .correctGuess {
-      color: red;
-    }
+      #globe-img {
+        width: 50px;
+      }
 
-    .incorrectGuess {
-      content: "_ ";
-    } */
-    
+      h1 {
+        display: inline;
+      }
+      /* button {
+        margin: 10px;
+        background: blue;
+        color: white;
+        border-radius: 5px;;
+        padding: 5px 10px;
+      }
+     */
     </style>
     <title>Hello, world!</title>
   </head>
@@ -26,7 +33,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-6">
-                <h1>Word Guessing Game</h1>
+                <h1>What In The Word? </h1>
+                <img id="globe-img" src="assets/img/globe.svg">
             </div>
         </div>
         <div class="row">
@@ -38,6 +46,7 @@
                   <!-- Buttons will render here -->
                 </div>
                 <hr>
+                <h5 id="guessesLeft">Guesses Left:</h5>
                 <h5 id="wins">Wins:</h5>
                 <h5 id="losses">Losses: </h5>
                 <h5 id="ties">Ties: </h5>

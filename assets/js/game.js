@@ -43,6 +43,14 @@ function renderLetterButtons() {
     }
 }
 
+renderLetterButtons();
+
+// Guesses Left - SPAN FOR NOW
+$("#guessesLeft").append(" " + guessesLeft);
+
+// Guessed Letters
+    // Add function that pushes letters to usedLetters array. 
+
 // On Page load, append "Press SPACE to begin"
 $( "#message" ).append( '<p>Press the SPACE button to begin!</p>' );
 
@@ -58,7 +66,6 @@ $(window).keypress(function (e) {
     wordLetters = Array.from(selectedCountry());
     // Ask user to guess letter
     countAndAppend();
-    renderLetterButtons();
     // Removes "Press SPACE to begin" message
     $( "#message" ).empty();
     // Appends new message to div
@@ -76,6 +83,10 @@ function letterCheck() {
         if (wordLetters[i] === guessedLetter)
         // Target ID="wordLetters[i]" and  replace with "A"
         $("#" + wordLetters[i]).replaceWith(wordLetters[i]);
+        else {
+            guessesLeft - 1;
+             
+        }
     }
 }
 
