@@ -30,36 +30,43 @@ function selectedCountry() {
     // console.log("The random country is " + selectedCountry);
 }
 
+// Count number of letters in chosen word and add underscores instead of letters.
 function countAndAppend() {
     for (var i = 0; i < wordLetters.length; i++) {
-        // Checks if User guess is correct
-        if (wordLetters[i] === guessedLetter) {
-            // if the user guess is correct, render the letter instead of the underscore. 
-            $("#wordDisplay").append('<span id="' + wordLetters[i] + '">' + wordLetters[i] + '</span>')
-        } 
-        else {
-            // If guess is wrong, all the letters stay in underscores
-            $("#wordDisplay").append('<span id="' + wordLetters[i] + '"> _ </span>');
-
-        }
+        $("#wordDisplay").append('<span id="' + wordLetters[i] + '"> _ </span>');
     }
 }
+
+// On Page load, append "Press SPACE to begin"
+$( "#message" ).append( '<p>Press the SPACE button to begin!</p>' );
 
 // User Presses Space
 $(window).keypress(function (e) {
     if (e.key === ' ' || e.key === 'Spacebar') {
-      // ' ' is standard, 'Spacebar' was used by IE9 and Firefox < 37
-      e.preventDefault()
-      console.log('Space pressed')
-      // Select Country from Array
-      selectedCountry();
-      // Break down the selectedWord into individual letters
-      wordLetters = Array.from(selectedCountry());
-      // Ask user to guess letter
-      guessedLetter = prompt("Choose letter").toLowerCase();
-      console.log("you chose " + guessedLetter);
-      countAndAppend();
+    // ' ' is standard, 'Spacebar' was used by IE9 and Firefox < 37
+    e.preventDefault()
+    console.log('Space pressed')
+    // Select Country from Array
+    selectedCountry();
+    // Break down the selectedWord into individual letters
+    wordLetters = Array.from(selectedCountry());
+    // Ask user to guess letter
+    countAndAppend();
+    // Removes "Press SPACE to begin" message
+    $( "#message" ).empty();
+    // Appends new message to div
+    $( "#message" ).append( '<p>Press any letter to start guessing!</p>' );
     }
-})
+});
 
 
+
+// letterCheck();
+
+function letterCheck() {
+    for (var i = 0; i < wordLetters.length; i++) {
+        console.log(wordLetters[i]);
+        // Target ID="wordLetters[i]" and  replace with "A"
+        $("#" + wordLetters[i]).replaceWith("A");
+    }
+}
