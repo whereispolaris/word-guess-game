@@ -36,6 +36,13 @@ function countAndAppend() {
     }
 }
 
+// Display letter buttons on the page
+function renderLetterButtons() {
+    for (var i = 0; i < letters.length; i++) {
+        $("#letterBank").append('<button id="' + letters[i] + 'Button">' + letters[i] + '</button>');
+    }
+}
+
 // On Page load, append "Press SPACE to begin"
 $( "#message" ).append( '<p>Press the SPACE button to begin!</p>' );
 
@@ -51,6 +58,7 @@ $(window).keypress(function (e) {
     wordLetters = Array.from(selectedCountry());
     // Ask user to guess letter
     countAndAppend();
+    renderLetterButtons();
     // Removes "Press SPACE to begin" message
     $( "#message" ).empty();
     // Appends new message to div
@@ -72,3 +80,8 @@ function letterCheck() {
 }
 
 // letterCheck() will keep runing untill all letters are guessed
+
+// function buttonPress() {
+//     letterCheck();
+//     if ()
+// }
