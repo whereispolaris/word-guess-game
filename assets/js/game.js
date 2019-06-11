@@ -1,5 +1,4 @@
 // PRESS SPACE BAR TO START
-    // event listener for space bar
 
 // Create fundamental variables
 // var selectedCountry;
@@ -59,14 +58,17 @@ $(window).keypress(function (e) {
     }
 });
 
-
-
-// letterCheck();
-
+// Write event that runs letterchec() when user presses key. 
 function letterCheck() {
+    // Temporary prompt for user to choose key
+    guessedLetter = prompt("Enter one letter to gueess"); 
     for (var i = 0; i < wordLetters.length; i++) {
         console.log(wordLetters[i]);
+        // Check if guessedLetter matches letters in wordLetters array.
+        if (wordLetters[i] === guessedLetter)
         // Target ID="wordLetters[i]" and  replace with "A"
-        $("#" + wordLetters[i]).replaceWith("A");
+        $("#" + wordLetters[i]).replaceWith(wordLetters[i]);
     }
 }
+
+// letterCheck() will keep runing untill all letters are guessed
