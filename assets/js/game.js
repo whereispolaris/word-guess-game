@@ -23,6 +23,10 @@ var usedCountries = [];
 // Letters that have been chosen already
 var usedLetters = [];
 
+// Ask customer to choose letter
+// var letterPrompt = prompt("Choose a letter");
+
+
 // CHOOSE RANDOM OBJECT FROM countries[] ARRAY
 function selectedCountry() {
     return countries[Math.floor(Math.random() * countries.length)];
@@ -43,44 +47,33 @@ function renderLetterButtons() {
     }
 }
 
-renderLetterButtons();
+$( document ).ready(function() {
+    // function that chooses country from array
+    selectedCountry();
+    // Break down the selectedWord into individual letters
+    wordLetters = Array.from(selectedCountry());
+    countAndAppend();
+    // Removes previous message
+    $( "#message" ).empty();
+    // Appends new message to div
+    $( "#message" ).append( '<p>Press any letter to start guessing!</p>' );
+    renderLetterButtons();
+});
 
 // Guesses Left - SPAN FOR NOW
 $("#guessesLeft").append(" " + guessesLeft);
 
-// Guessed Letters
-    // Add function that pushes letters to usedLetters array. 
-
-$( document ).ready(function() {
-    console.log( "ready!" );
-    selectedCountry();
-    // Break down the selectedWord into individual letters
-    wordLetters = Array.from(selectedCountry());
-    // Ask user to guess letter
-    countAndAppend();
-    // Removes "Press SPACE to begin" message
-    $( "#message" ).empty();
-    // Appends new message to div
-    $( "#message" ).append( '<p>Press any letter to start guessing!</p>' );
-});
-
-
 // Write event that runs letterchec() when user presses key. 
-function letterCheck() {
-    // Temporary prompt for user to choose key
-    guessedLetter = prompt("Enter one letter to gueess"); 
+function letterCheck(guessedLetter) {
+    // Temporary prompt for user to choose key 
     for (var i = 0; i < wordLetters.length; i++) {
         console.log(wordLetters[i]);
         // Check if guessedLetter matches letters in wordLetters array.
         if (wordLetters[i] === guessedLetter)
         // Target ID="wordLetters[i]" and  replace with "A"
         $("#" + wordLetters[i]).replaceWith(wordLetters[i]);
-        else {
-            guessesLeft - 1;
-             
-        }
     }
 }
 
-
 // letterCheck() will keep runing untill all letters are guessed
+// letterCheck(String(letterPrompt));
