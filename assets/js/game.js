@@ -23,10 +23,6 @@ var usedCountries = [];
 // Letters that have been chosen already
 var usedLetters = [];
 
-// Ask customer to choose letter
-// var letterPrompt = prompt("Choose a letter");
-
-
 // CHOOSE RANDOM OBJECT FROM countries[] ARRAY
 function selectedCountry() {
     return countries[Math.floor(Math.random() * countries.length)];
@@ -41,11 +37,11 @@ function countAndAppend() {
 }
 
 // Display letter buttons on the page
-function renderLetterButtons() {
-    for (var i = 0; i < letters.length; i++) {
-        $("#letterBank").append('<button id="' + letters[i] + 'Button">' + letters[i] + '</button>');
-    }
-}
+// function renderLetterButtons() {
+//     for (var i = 0; i < letters.length; i++) {
+//         $("#letterBank").append('<button id="' + letters[i] + 'Button">' + letters[i] + '</button>');
+//     }
+// }
 
 $( document ).ready(function() {
     // function that chooses country from array
@@ -56,12 +52,15 @@ $( document ).ready(function() {
     // Removes previous message
     $( "#message" ).empty();
     // Appends new message to div
-    $( "#message" ).append( '<p>Press any letter to start guessing!</p>' );
-    renderLetterButtons();
+    $( "#message" ).append( '<p>Press the button to start guessing!</p>' );
+    // renderLetterButtons();
 });
 
 // Guesses Left - SPAN FOR NOW
 $("#guessesLeft").append(" " + guessesLeft);
+
+$("#wins").append(" " + wins);
+$("#losses").append(" " + losses);
 
 // Write event that runs letterchec() when user presses key. 
 function letterCheck() {
@@ -69,9 +68,10 @@ function letterCheck() {
     for (var i = 0; i < wordLetters.length; i++) {
         console.log(wordLetters[i]);
         // Check if guessedLetter matches letters in wordLetters array.
-        if (wordLetters[i] === guessedLetter)
+        if (wordLetters[i] === guessedLetter) {
         // Target ID="wordLetters[i]" and  replace with "A"
         $("#" + wordLetters[i]).replaceWith(wordLetters[i]);
+        }
     }
 }
 
