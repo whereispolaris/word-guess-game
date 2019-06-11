@@ -51,16 +51,8 @@ $("#guessesLeft").append(" " + guessesLeft);
 // Guessed Letters
     // Add function that pushes letters to usedLetters array. 
 
-// On Page load, append "Press SPACE to begin"
-$( "#message" ).append( '<p>Press the SPACE button to begin!</p>' );
-
-// User Presses Space
-$(window).keypress(function (e) {
-    if (e.key === ' ' || e.key === 'Spacebar') {
-    // ' ' is standard, 'Spacebar' was used by IE9 and Firefox < 37
-    e.preventDefault()
-    console.log('Space pressed')
-    // Select Country from Array
+$( document ).ready(function() {
+    console.log( "ready!" );
     selectedCountry();
     // Break down the selectedWord into individual letters
     wordLetters = Array.from(selectedCountry());
@@ -70,8 +62,8 @@ $(window).keypress(function (e) {
     $( "#message" ).empty();
     // Appends new message to div
     $( "#message" ).append( '<p>Press any letter to start guessing!</p>' );
-    }
 });
+
 
 // Write event that runs letterchec() when user presses key. 
 function letterCheck() {
@@ -90,9 +82,5 @@ function letterCheck() {
     }
 }
 
-// letterCheck() will keep runing untill all letters are guessed
 
-// function buttonPress() {
-//     letterCheck();
-//     if ()
-// }
+// letterCheck() will keep runing untill all letters are guessed
