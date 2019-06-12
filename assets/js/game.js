@@ -36,7 +36,7 @@ function countAndAppend() {
 }
 
 // Display letter buttons on the page
-function renderLetterButtons() {
+// function renderLetterButtons() {
     for (var i = 0; i < letters.length; i++) {
         // 2. Create a variable named "letterBtn" equal to $("<button>");
         letterBtn = $("<button>");
@@ -49,9 +49,7 @@ function renderLetterButtons() {
         // 6. Finally, append each "letterBtn" to the "#buttons" div (provided).
         $("#letterBank").append(letterBtn);
     }
-}
-
-
+// } renderLetterButtons() END
 
 $( document ).ready(function() {
     // function that chooses country from array
@@ -63,7 +61,7 @@ $( document ).ready(function() {
     $( "#message" ).empty();
     // Appends new message to div
     $( "#message" ).append( '<p>Press the button to start guessing!</p>' );
-    renderLetterButtons();
+    // renderLetterButtons();
 });
 
 // Guesses Left - SPAN FOR NOW
@@ -74,19 +72,37 @@ $("#losses").append(" " + losses);
 
 // Write event that runs letterchec() when user presses key. 
 function letterCheck() {
-    // Temporary prompt for user to choose key 
-    for (var i = 0; i < wordLetters.length; i++) {
-        console.log(wordLetters[i]);
-        // Check if guessedLetter matches letters in wordLetters array.
-        if (wordLetters[i] === guessedLetter) {
-        // Target ID="wordLetters[i]" and  replace with "A"
-        $("#" + wordLetters[i]).replaceWith(wordLetters[i]);
+    if (wordLetters.indexOf(guessedLetter) === -1) {
+        guessesLeft -=1;
+        $("#guessesLeft").empty();
+        $("#guessesLeft").append("Guesses Left: " + guessesLeft);
+    } else {
+        // Temporary prompt for user to choose key 
+        for (var i = 0; i < wordLetters.length; i++) {
+            console.log(wordLetters[i]);
+            // Check if guessedLetter matches letters in wordLetters array.
+            if (wordLetters[i] === guessedLetter) {
+            // Target ID="wordLetters[i]" and  replace with "A"
+            $("#" + wordLetters[i]).replaceWith(wordLetters[i]);
+            }
         }
     }
 }
+
+
+// ======= this is not working, I give up ===========
+// $(".letter-button").on("click", function(){
+//     // Inside the on-click event...
+//    console.log("you pressed a button");
+//    guessedLetter = $(".letter-button").attr("data-letter");
+//    console.log(guessedLetter);
+// });
+
+
 
 // When User Presses letter, prompt shows up
 function activatePrompt() {
     guessedLetter = prompt("Choose a letter");
     letterCheck();
 }
+
