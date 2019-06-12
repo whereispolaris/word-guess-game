@@ -26,7 +26,6 @@ var usedLetters = [];
 // CHOOSE RANDOM OBJECT FROM countries[] ARRAY
 function selectedCountry() {
     return countries[Math.floor(Math.random() * countries.length)];
-    // console.log("The random country is " + selectedCountry);
 }
 
 // Count number of letters in chosen word and add underscores instead of letters.
@@ -37,11 +36,22 @@ function countAndAppend() {
 }
 
 // Display letter buttons on the page
-// function renderLetterButtons() {
-//     for (var i = 0; i < letters.length; i++) {
-//         $("#letterBank").append('<button id="' + letters[i] + 'Button">' + letters[i] + '</button>');
-//     }
-// }
+function renderLetterButtons() {
+    for (var i = 0; i < letters.length; i++) {
+        // 2. Create a variable named "letterBtn" equal to $("<button>");
+        letterBtn = $("<button>");
+        // 3. Then give each "letterBtn" the following classes: "letter-button" "letter" "letter-button-color".
+        letterBtn.addClass("letter-button");
+        // 4. Then give each "letterBtn" an attribute called "data-letter", with a value eqaual to "letters[i]"
+        letterBtn.attr("data-letter", letters[i]);
+        // 5. Then give each "letterBtn" a text equal to "letters[i]".
+        letterBtn.text(letters[i]);
+        // 6. Finally, append each "letterBtn" to the "#buttons" div (provided).
+        $("#letterBank").append(letterBtn);
+    }
+}
+
+
 
 $( document ).ready(function() {
     // function that chooses country from array
@@ -53,7 +63,7 @@ $( document ).ready(function() {
     $( "#message" ).empty();
     // Appends new message to div
     $( "#message" ).append( '<p>Press the button to start guessing!</p>' );
-    // renderLetterButtons();
+    renderLetterButtons();
 });
 
 // Guesses Left - SPAN FOR NOW
@@ -74,8 +84,6 @@ function letterCheck() {
         }
     }
 }
-
-
 
 // When User Presses letter, prompt shows up
 function activatePrompt() {
