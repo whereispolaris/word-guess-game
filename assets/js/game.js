@@ -74,6 +74,10 @@ $("#losses").append(" " + losses);
 function letterCheck() {
     if (wordLetters.indexOf(guessedLetter) === -1) {
         guessesLeft -=1;
+        if (guessesLeft === 0){
+            // Add one to losses
+            console.log("You lost!")
+        }
         $("#guessesLeft").empty();
         $("#guessesLeft").append("Guesses Left: " + guessesLeft);
     } else {
