@@ -9,7 +9,7 @@ var losses = 0;
 var lettersAlreadyGuessed = [];
 var guessesLeft = 12;
 var wordDisplay; // what renders on the index.html file right next to WORD:
-var getWord = document.getElementById("appendWord"); // targets appendWord ID.
+
 
  // Array of countries (REMOVE ARRAYS WITH TWO WORDS)
 var countries = ["china" , "india" , "indonesia" , "brazil" , "pakistan" , "nigeria" , "bangladesh" , "russia" , "japan" , "mexico" , "philippines" , "ethiopia" , "vietnam" , "egypt" , "iran" , "congo" , "germany" , "turkey" , "thailand" , "france" , "italy" , "burma", "tanzania" , "panama" , "spain" , "colombia" , "kenya" , "ukraine" , "argentina" , "algeria" , "poland" , "uganda" , "iraq" , "sudan" , "canada" , "morocco" , "afghanistan" , "malaysia" , "venezuela" , "peru" , "uzbekistan" , "nepal", "yemen" , "ghana" , "mozambique"];
@@ -43,7 +43,7 @@ function countAndAppend() {
         // 3. Then give each "letterBtn" the following classes: "letter-button" "letter" "letter-button-color".
         letterBtn.addClass("letter-button");
         // 4. Then give each "letterBtn" an attribute called "data-letter", with a value eqaual to "letters[i]"
-        letterBtn.attr("data-letter", letters[i]);
+        letterBtn.attr("value", letters[i]);
         // 5. Then give each "letterBtn" a text equal to "letters[i]".
         letterBtn.text(letters[i]);
         // 6. Finally, append each "letterBtn" to the "#buttons" div (provided).
@@ -89,20 +89,18 @@ function letterCheck() {
     }
 }
 
-
-// ======= this is not working, I give up ===========
-// $(".letter-button").on("click", function(){
-//     // Inside the on-click event...
-//    console.log("you pressed a button");
-//    guessedLetter = $(".letter-button").attr("data-letter");
-//    console.log(guessedLetter);
-// });
+// if (guessesLeft === 0) {}
 
 
-
-// When User Presses letter, prompt shows up
-function activatePrompt() {
-    guessedLetter = prompt("Choose a letter");
+$('.letter-button').on("click", function(){
+    guessedLetter = $(this).val();
+    console.log(guessedLetter);
     letterCheck();
-}
+});
+
+
+// TO DO
+    // How do I get the app to check if all letters have been guessed?
+    // Add Guessed Letters Array - Push letters
+    //
 
