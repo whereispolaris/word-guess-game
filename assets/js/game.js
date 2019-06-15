@@ -1,8 +1,6 @@
-// PRESS SPACE BAR TO START
-
-// Create fundamental variables
-// var selectedCountry;
-var wordLetters;
+// Global variables
+var chosenCountry; 
+var chosenCountryLetters;
 var guessedLetter;
 var wins = 0;
 var losses = 0;
@@ -11,7 +9,7 @@ var guessesLeft = 12;
 var wordDisplay; // what renders on the index.html file right next to WORD:
 
 
- // Array of countries (REMOVE ARRAYS WITH TWO WORDS)
+ // Array of countries =
 var countries = ["china" , "india" , "indonesia" , "brazil" , "pakistan" , "nigeria" , "bangladesh" , "russia" , "japan" , "mexico" , "philippines" , "ethiopia" , "vietnam" , "egypt" , "iran" , "congo" , "germany" , "turkey" , "thailand" , "france" , "italy" , "burma", "tanzania" , "panama" , "spain" , "colombia" , "kenya" , "ukraine" , "argentina" , "algeria" , "poland" , "uganda" , "iraq" , "sudan" , "canada" , "morocco" , "afghanistan" , "malaysia" , "venezuela" , "peru" , "uzbekistan" , "nepal", "yemen" , "ghana" , "mozambique"];
 
 // Array of letters
@@ -25,15 +23,20 @@ var usedLetters = [];
 
 // CHOOSE RANDOM OBJECT FROM countries[] ARRAY
 function selectedCountry() {
-    return countries[Math.floor(Math.random() * countries.length)];
+    chosenCountry =  countries[Math.floor(Math.random() * countries.length)];
+    return chosenCountry;
 }
+
+
+
 
 // Count number of letters in chosen word and add underscores instead of letters.
 function countAndAppend() {
-    for (var i = 0; i < wordLetters.length; i++) {
-        $("#wordDisplay").append('<span id="' + wordLetters[i] + '"> _ </span>');
+    for (var i = 0; i < chosenCountryLetters.length; i++) {
+        $("#wordDisplay").append('<span id="' + chosenCountryLetters[i] + '"> _ </span>');
     }
 }
+
 
 // Display letter buttons on the page
 // function renderLetterButtons() {
@@ -53,10 +56,12 @@ function countAndAppend() {
 
 $( document ).ready(function() {
     // function that chooses country from array
+    chosenCountryLetters = Array.from(selectedCountry());
+    countAndAppend();
+
     selectedCountry();
     // Break down the selectedWord into individual letters
-    wordLetters = Array.from(selectedCountry());
-    countAndAppend();
+
     // Removes previous message
     $( "#message" ).empty();
     // Appends new message to div
@@ -72,7 +77,7 @@ $("#losses").append(" " + losses);
 
 // Write event that runs letterchec() when user presses key. 
 function letterCheck() {
-    if (wordLetters.indexOf(guessedLetter) === -1) {
+    if (chosenCountryLetters.indexOf(guessedLetter) === -1) {
         guessesLeft -=1;
         if (guessesLeft === 0){
             // Add one to losses
@@ -82,12 +87,12 @@ function letterCheck() {
         $("#guessesLeft").append("Guesses Left: " + guessesLeft);
     } else {
         // Temporary prompt for user to choose key 
-        for (var i = 0; i < wordLetters.length; i++) {
-            console.log(wordLetters[i]);
-            // Check if guessedLetter matches letters in wordLetters array.
-            if (wordLetters[i] === guessedLetter) {
-            // Target ID="wordLetters[i]" and  replace with "A"
-            $("#" + wordLetters[i]).replaceWith(wordLetters[i]);
+        for (var i = 0; i < chosenCountryLetters.length; i++) {
+            console.log(chosenCountryLetters[i]);
+            // Check if guessedLetter matches letters in chosenCountryLetters array.
+            if (chosenCountryLetters[i] === guessedLetter) {
+            // Target ID="chosenCountryLetters[i]" and  replace with "A"
+            $("#" + chosenCountryLetters[i]).replaceWith(chosenCountryLetters[i]);
             }
         }
     }
